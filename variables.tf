@@ -10,8 +10,8 @@ variable "name" {
     description = "Postgres server name"
 }
 
-variable "size" {
-    type = "list"
+variable "sku" {
+    type = "map"
     description = "The Postgres SKU"
     default = {
         name = "B_Gen5_1"
