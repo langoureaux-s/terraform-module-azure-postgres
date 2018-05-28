@@ -14,7 +14,7 @@ resource "azurerm_postgresql_server" "server" {
   administrator_login           = "${var.admin_username}"
   administrator_login_password  = "${var.admin_password}"
   version                       = "${var.version}"
-  storage_mb                    = "${var.storage_mb}"
+#  storage_mb                    = "${var.storage_mb}"
   ssl_enforcement               = "Disabled"
   
   tags                          = "${var.tags}"
