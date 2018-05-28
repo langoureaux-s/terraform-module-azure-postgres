@@ -11,7 +11,7 @@ variable "name" {
 }
 
 variable "size" {
-    type = "map"
+    type = "list"
     description = "The Postgres SKU"
     default = {
         name = "B_Gen5_1"
