@@ -3,7 +3,13 @@ resource "azurerm_postgresql_server" "server" {
   location                      = "${var.location}"
   resource_group_name           = "${var.rg_name}"
 
-  sku                           = "${var.sku}"
+  #sku                           = "${var.sku}"
+  sku {
+    name = "B_Gen5_1"
+    capacity = 1
+    tier = "Basic"
+    family = "Gen5"
+  }
 
   storage_profile {
     storage_mb                  = "${var.storage_mb}"
