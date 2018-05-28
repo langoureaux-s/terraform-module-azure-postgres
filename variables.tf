@@ -14,10 +14,10 @@ variable "sku" {
     type = "map"
     description = "The Postgres SKU"
     default = {
-        name = "B_Gen5_1",
-        capacity = 1,
-        tier = "Basic",
-        family = "Gen5",
+        name = "B_Gen5_1"
+        capacity = 1
+        tier = "Basic"
+        family = "Gen5"
     }
 }
 
