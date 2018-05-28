@@ -26,5 +26,5 @@ resource "azurerm_postgresql_database" "db" {
   resource_group_name   = "${var.rg_name}"
   server_name           = "${azurerm_postgresql_server.server.name}"
   charset               = "${lookup(var.databases[count.index], "charset", "UTF8")}"
-  collation             = "${lookup(var.databases[count.index], "collation", "en-US")}"
+  collation             = "${lookup(var.databases[count.index], "collation", "en_US")}"
 }
