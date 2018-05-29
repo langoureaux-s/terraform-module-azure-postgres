@@ -52,11 +52,11 @@ variable "databases" {
 variable "security_rules" {
     type = "list"
     description = "The security rules to create on Postgres"
-    default = {
+    default = [{
         name        = "all"
         start_ip    = "0.0.0.0"
         end_ip      = "255.255.255.0"
-    }
+    }]
 }
 
 variable "tags" {
