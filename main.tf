@@ -40,6 +40,7 @@ resource "azurerm_postgresql_server" "server" {
 
 resource "azurerm_postgresql_database" "db" {
   name                = "mainqualinirprod"
+  resource_group_name   = "${var.rg_name}"
   server_name         = "${azurerm_postgresql_server.server.name}"
   charset             = "UTF8"
   collation           = "en_US"
