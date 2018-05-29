@@ -55,7 +55,7 @@ variable "security_rules" {
     default = [{
         name        = "all"
         start_ip    = "0.0.0.0"
-        end_ip      = "255.255.255.0"
+        end_ip      = "255.255.255.255"
     }]
 }
 
