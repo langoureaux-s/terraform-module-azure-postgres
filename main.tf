@@ -20,17 +20,32 @@ resource "azurerm_postgresql_server" "server" {
   administrator_login           = "${var.admin_username}"
   administrator_login_password  = "${var.admin_password}"
   version                       = "${var.version}"
-#  storage_mb                    = "${var.storage_mb}"
   ssl_enforcement               = "Disabled"
   
   tags                          = "${var.tags}"
 }
 
+#resource "azurerm_postgresql_database" "db" {
+#  count                 = "${length(var.databases)}"
+#  name                  = "${lookup(var.databases[count.index], "name")}"
+#  resource_group_name   = "${var.rg_name}"
+#  server_name           = "${azurerm_postgresql_server.server.name}"
+#  charset               = "${lookup(var.databases[count.index], "charset", "UTF8")}"
+#  collation             = "${lookup(var.databases[count.index], "collation", "en_US")}"
+#  lifecycle {
+#    create_before_destroy = true
+#    prevent_destroy       = true
+#  }
+#}
+
 resource "azurerm_postgresql_database" "db" {
-  count                 = "${length(var.databases)}"
-  name                  = "${lookup(var.databases[count.index], "name")}"
-  resource_group_name   = "${var.rg_name}"
-  server_name           = "${azurerm_postgresql_server.server.name}"
-  charset               = "${lookup(var.databases[count.index], "charset", "UTF8")}"
-  collation             = "${lookup(var.databases[count.index], "collation", "en_US")}"
+  name                = "mainqualinirprod"
+  server_name         = "${azurerm_postgresql_server.server.name}"
+  charset             = "UTF8"
+  collation           = "en_US"
+
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy       = true
+  }
 }
