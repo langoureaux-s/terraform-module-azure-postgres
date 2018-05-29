@@ -41,12 +41,22 @@ variable "admin_password" {
 
 variable "version" {
     description = "The postgres version"
-    default = "9.5"
+    default = "9.6"
 }
 
 variable "databases" {
     type = "list"
     description = "The list of databases hosted on Postgres server"
+}
+
+variables "security_rules" {
+    type = "list"
+    description = "The security rules to create on Postgres"
+    default = {
+        name        = "all"
+        start_ip    = "0.0.0.0"
+        end_ip      = "255.255.255.0"
+    }
 }
 
 variable "tags" {
