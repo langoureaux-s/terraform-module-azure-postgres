@@ -49,7 +49,7 @@ variable "databases" {
     description = "The list of databases hosted on Postgres server"
 }
 
-variables "security_rules" {
+variable "security_rules" {
     type = "list"
     description = "The security rules to create on Postgres"
     default = {
